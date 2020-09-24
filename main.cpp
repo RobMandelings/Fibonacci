@@ -8,10 +8,12 @@ int main(int argc, char* argv[]) {
 	int number;
 	std::cin >> number;
 	
+	int previousPrevious = 1;
 	int previous = 1;
 	int current = 1;
 	for (int i = 0; i < number; i++) {
-		int newCurrent = previous + current;
+		int newCurrent = previousPrevious + previous + current;
+		previousPrevious = previous;
 		previous = current;
 		current = newCurrent;
 	}
